@@ -1,0 +1,54 @@
+apply plugin: 'com.android.application'
+
+def extConfig = rootProject.ext
+def andConfig = rootProject.ext.android
+
+
+android {
+    compileSdkVersion andConfig.compileSdkVersion
+    buildToolsVersion andConfig.buildToolsVersion
+    defaultConfig {
+        applicationId andConfig.applicationId
+        minSdkVersion andConfig.minSdkVersion
+        targetSdkVersion andConfig.targetSdkVersion
+        versionCode extConfig.versionCode
+        versionName andConfig.versionName
+
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        debug {
+            applicationIdSuffix ".debug"
+
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            // 移除无用的resource文件
+            shrinkResources true
+
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs', 'src/main/jniLibs']
+        }
+    }
+//    if (androidConfig.sdkVersion>22) {
+//         useLibrary 'org.apache.http.legacy'
+//    }
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.12'
+   
+    implementation extConfig.multidex_lib
+    implementation extConfig.appcompat_lib
+    implementation extConfig.recyclerview_lib
+
+    implementation project(':utillib')
+}
