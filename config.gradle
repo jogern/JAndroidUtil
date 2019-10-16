@@ -9,7 +9,7 @@ ext {
     curData = "${releaseTime()}"
 
     android = [
-            applicationId    : "com.studyhelper.main",
+            applicationId    : "com.jogern.jutil",
             buildToolsVersion: "28.0.3",
             minSdkVersion    : 15,
             targetSdkVersion : 25,
