@@ -8,6 +8,10 @@ public final class StringUtil {
 
       private StringUtil() { }
 
+      public static boolean isEmpty(CharSequence text) {
+            return text == null || text.length() <= 0;
+      }
+
       /**
        * 单位毫秒
        * @param timeMs
@@ -35,7 +39,7 @@ public final class StringUtil {
             int totalSeconds = timeMs / 1000;
             int seconds = totalSeconds % 60;
             int minutes = totalSeconds / 60;
-            return String.format("%02d:%02d:%02d",minutes/60, minutes, seconds);
+            return String.format("%02d:%02d:%02d", minutes / 60, minutes, seconds);
       }
 
 }

@@ -23,6 +23,6 @@ ext {
     //multidex_lib = 'com.android.support:multidex:1.0.3'
     multidex_lib = 'androidx.multidex:multidex:2.0.1'
 
-    versionCode = 1
+    versionCode = 2
 
 }
