@@ -42,6 +42,10 @@ public class Logcat {
         }
     }
 
+    public static boolean allowDebug(){
+        return allow_level <= Log.DEBUG;
+    }
+
     public static void v(String msg) {
         if (allow_level <= Log.VERBOSE) {
             String tag = getThrowableTag();
