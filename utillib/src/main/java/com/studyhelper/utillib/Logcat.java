@@ -16,7 +16,7 @@ public class Logcat {
     /**
      * TAG的占位格式：[T:线程名] [J:类] [func:方法名] [L:行号]
      */
-    private static final String FORMAT = "[T:%s J:%s func:%s L:%s]-> ";
+    private static final String FORMAT = "[T:%s J:%s func:%s L:%s]->";
     /**
      * stackTrace 的固定下标
      */
@@ -46,6 +46,10 @@ public class Logcat {
         return allow_level <= Log.DEBUG;
     }
 
+    public static boolean allowInfo(){
+        return allow_level <= Log.INFO;
+    }
+
     public static void v(String msg) {
         if (allow_level <= Log.VERBOSE) {
             String tag = getThrowableTag();
@@ -56,7 +60,7 @@ public class Logcat {
     public static void d(String msg) {
         if (allow_level <= Log.DEBUG) {
             String tag = getThrowableTag();
-            realPrintf(Log.WARN, tag, splitMsg(msg, tag));
+            realPrintf(Log.DEBUG, tag, splitMsg(msg, tag));
         }
     }
 
