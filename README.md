@@ -4,6 +4,6 @@
 - 使用在 studio 增加:
 
  ~~~
- implementation 'com.github.jogern:JAndroidUtil:v1.0.2' 
+ implementation 'com.github.jogern:JAndroidUtil:v1.0.3' 
  
  ~~~

@@ -14,9 +14,9 @@ import java.util.List;
 public class Logcat {
 
     /**
-     * TAG的占位格式：[T:线程名] [J:类] [func:方法名] [L:行号]
+     * TAG的占位格式：[T:线程名] [J:类] [M:方法名] [L:行号]
      */
-    private static final String FORMAT = "[T:%s J:%s func:%s L:%s]->";
+    private static final String FORMAT = "[T:%s J:%s M:%s L:%s]->";
     /**
      * stackTrace 的固定下标
      */
@@ -183,7 +183,7 @@ public class Logcat {
     private static void realPrintf(int logLevel, String tag, String msg) {
         switch (logLevel) {
             case Log.VERBOSE:
-                Log.d(TAG_PREFIX, String.format(tag + "%s", msg));
+                Log.v(TAG_PREFIX, String.format(tag + "%s", msg));
                 break;
             case Log.INFO:
                 Log.i(TAG_PREFIX, String.format(tag + "%s", msg));
