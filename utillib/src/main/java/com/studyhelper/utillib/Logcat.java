@@ -24,7 +24,7 @@ public class Logcat {
     /**
      * 每行字数
      */
-    private static final int LINE_LEN = 4 * 850;
+    private static final int LINE_LEN = 4 * 500;
     /**
      * TAG前缀 以便过滤log
      */
